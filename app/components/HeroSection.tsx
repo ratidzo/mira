@@ -56,12 +56,12 @@ export default function HeroSection() {
                 <p className="font-brand text-xl text-dark-500 w-160">Meet your Mira, a try-on platform for e-commerce vendors that let your customers visualize their new look right in store - with AI.</p>
             </div>
 
-            <div>
+            <div className="flex flex-col items-center gap-12.5">
                 <p className="text-[16px] font-brand text-dark-500">Ready to supercharge your conversions?</p>
 
-                <div>
+                <div className="flex flex-col items-center gap-5">
                     <Button text="Book a free demo"/>
-                    <p className="text-sm font-app font-bold text-dark-900">No credit card required.</p>
+                    <p className="text-xs font-app font-bold text-dark-900">No credit card required.</p>
                 </div>
             </div>
         </div>
