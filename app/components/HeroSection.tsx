@@ -45,7 +45,7 @@ export default function HeroSection() {
                     width: `${panelWidth}px`,
                     zIndex: index
                 }}
-                className="h-full bg-linear-to-b from-white/0 to-gray-200/25 backdrop-blur-sm" />
+                className="h-216 bg-linear-to-b from-white/0 to-gray-200/25 backdrop-blur-sm" />
             )) }
 
 
