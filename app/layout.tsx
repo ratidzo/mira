@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${jost.variable} ${inter.variable} antialiased`}
+        className={`${jost.variable} ${inter.variable} h-screen antialiased`}
       >
         {children}
       </body>
