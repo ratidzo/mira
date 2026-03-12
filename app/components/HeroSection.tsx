@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import {useRef, useState, useEffect} from "react";
+import Button from "./UI/Button";
 
 
 export default function HeroSection() {
@@ -57,6 +58,11 @@ export default function HeroSection() {
 
             <div>
                 <p className="text-[16px] font-brand text-dark-500">Ready to supercharge your conversions?</p>
+
+                <div>
+                    <Button text="Book a free demo"/>
+                    <p className="text-sm font-app font-bold text-dark-900">No credit card required.</p>
+                </div>
             </div>
         </div>
 

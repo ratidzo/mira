@@ -1,7 +1,13 @@
 
-export default function Button() {
+interface ButtonProps {
+    text: string;
+}
 
+
+export default function Button({ text }: ButtonProps) {
     return (
-        <button>I am a button</button>
+        <button className="px-10 py-2 bg-black">
+            { text }
+        </button>
     )
 }
