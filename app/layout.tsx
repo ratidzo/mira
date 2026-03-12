@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import {Inter, Jost} from "next/font/google";
+import { Inter, Jost } from "next/font/google";
 
 const jost = Jost({
   subsets: ['latin'],
@@ -9,8 +9,8 @@ const jost = Jost({
 })
 
 const inter = Inter({
-  subsets: ['latin'], 
-  variable: "--font-app", 
+  subsets: ['latin'],
+  variable: "--font-app",
   weight: "variable"
 })
 
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${jost.variable} ${inter.variable} h-screen antialiased`}
+        className={`${jost.variable} ${inter.variable} flex flex-col items-center antialiased`}
       >
         {children}
       </body>

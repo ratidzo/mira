@@ -3,6 +3,7 @@
 import Image from "next/image";
 import {useRef, useState, useEffect} from "react";
 import Button from "./UI/Button";
+import Ad from "./media/Ad";
 
 
 export default function HeroSection() {
@@ -28,7 +29,7 @@ export default function HeroSection() {
 
 
     return (
-        <section ref={containerRef} className="relative flex w-full h-full justify-center items-center overflow-x-hidden bg-white select-none">
+        <section ref={containerRef} className="relative flex flex-col h-216 w-full justify-center items-center overflow-x-hidden bg-white select-none">
             <Image width={260} height={200} src={"/Left.png"} alt="left image" className="absolute z-0 left-[10%] top-[10%]" />
             <Image width={229} height={420} src={"/Middle.png"} alt="middle image" className="absolute z-0 left-[40%] top-[55%]" />
             <Image width={229} height={420} src={"/Right.png"} alt="right image" className="absolute z-0 right-[20%] top-[10%]" />
@@ -65,9 +66,6 @@ export default function HeroSection() {
                 </div>
             </div>
         </div>
-
-
-
         </section>
     )
 }
