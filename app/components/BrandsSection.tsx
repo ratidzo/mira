@@ -16,7 +16,7 @@ export default function BrandsSection() {
     return (
        <div className="bg-dark-900 w-full flex flex-col justify-center items-center pt-16  pb-40 gap-20">
         <h1 className="font-brand text-lg text-white">Trusted by the best in e-commerce:</h1>
-        <Ticker gap={120}>
+        <Ticker gap={80} speed={40}>
             <Image src={lvhm} alt="Louis Vuitton logo" height={24} width={230}/>
             <Image src={gymshark} alt="Gymshark logo" height={24} width={144} />
             <Image src={skims} alt="Skims logo" height={28} width={126} />
