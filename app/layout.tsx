@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Inter, Jost } from "next/font/google";
+import Nav from "./components/Nav.tsx";
 
 const jost = Jost({
   subsets: ['latin'],
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body
         className={`${jost.variable} ${inter.variable} flex flex-col items-center antialiased`}
       >
+      	<Nav />
         {children}
       </body>
     </html>
