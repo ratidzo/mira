@@ -1,6 +1,8 @@
 "use client"
 
 import { Children, ReactNode, useState } from "react";
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
 
 interface TickerProps {
     children: ReactNode;
@@ -55,26 +57,18 @@ export default function Ticker({
                 WebkitMaskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)"
             }}
             >
-                <div 
-                    className="w-max flex justify-center items-center gap-0 "
-                    style={{
-                        animationName,
-                        animationDuration: `${speed}s`,
-                        animationTimingFunction: "linear",
-                        animationIterationCount: "infinite",
-                        animationPlayState: `${isPaused ? "paused": "running"}` 
-                    }}>
-                       <ul className="flex w-full items-center"
-                        style={{ gap: `${gap}px`}}
-                       >
-                        { items }
-                       </ul> 
+                <div className="w-max flex justify-center items-center gap-0 ">
                        <ul className="flex w-full items-center"
                         style={{ gap: `${gap}px`}}
                        >
                             { items }
                        </ul>
-                    </div>
-            </div>
+                       <ul className="flex w-full items-center"
+                        style={{ gap: `${gap}px`}}
+                       >
+                            { items }
+                       </ul>
+                </div>
+        </div>
     )
 }
