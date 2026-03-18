@@ -1,6 +1,6 @@
 "use client"
 
-import { Children, ReactNode, useState, useLayoutEffect, useRef } from "react";
+import { Children, ReactNode, useState,  useRef } from "react";
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 
@@ -10,34 +10,36 @@ interface TickerProps {
     direction?: "left" | "right";
     hoverInteraction? : boolean;
     hoverTimeStretch? : number;
+    pauseOnHover? : boolean;
     gap?: number;
 }
 
 export default function Ticker({
     children,
-    speed = 20,
+    speed = 50,
     direction = "left",
+    hoverInteractions = false,
+    hoverTimeStretch = 0.5,
     pauseOnHover = false,
     gap = 64,
 }: TickerProps) {
     
-    const [xDistance, setXDistance] = useState(0);
+    const [running, setRunning] = useState(true)
     const parentRef = useRef(null);
+    const tickerAnimationRef = useRef<gsap.core.Tween | null>(null);
+    const tickerRef = useRef(null);
 
-    useLayoutEffect(() => {
-        if (!parentRef.current) return;
-        const observer = new ResizeObserver((entries) => {
-            for (let entry of entries) {
-                setXDistance(entry.contentRect.width);
-            }
-        });
-        observer.observe(parentRef.current);
-        console.log("Animation parent container width: ", xDistance);
-        return () => observer.disconnect();
-    }, [xDistance]);
+    const xDirection = direction === "left"? "-50%": "50%";
 
-    // speed in px/sec. start with any abitrary value then adjust.
-    const xTranslationSpeed = 50; // pixels per second.
+    useGSAP(() => {
+        tickerAnimationRef.current = gsap.to(
+            tickerRef.current, {
+                x: '-50%',
+                duration: speed,
+                repeat: -1, // repeat infinite
+                ease: "linear"
+            })
+    })
     
     const items = Children.map(children, (child, index) => (
         <li key={index} className="flex items-center shrink-0 list-none "
@@ -47,28 +49,37 @@ export default function Ticker({
     ))
 
     const handleMouseEnter = () => {
+        // decide what to do based on whether or not hover interactions are enabled.
+        if(hoverInteractions) {
+           if(pauseOnHover) {
+               tickerAnimationRef.current?.paused(true)
+           } else {
+               tickerAnimationRef.current?.timeScale(hoverTimeStretch)
+           }
+        } else {
+                tickerAnimationRef.current?.paused(false)
+        }
 
         console.log("Mouse enter ")
-        
     }
 
     const handleMouseLeave = () => {
+        tickerAnimationRef.current?.paused(false)
+        tickerAnimationRef.current?.timeScale(1)
         console.log("Mouse leave")
-
         }
-    
 
     return (
         <div ref={ parentRef }
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className="w-full overflow-hidden py-10 hover:cursor-pointer"
+            className={`w-full overflow-hidden py-10 ${hoverInteractions? "hover:cursor-pointer": "hover:cursor-default"}`}
             style={{
                 maskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
                 WebkitMaskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)"
             }}
             >
-                <div className="w-max flex justify-center items-center gap-0 ">
+                <div ref={tickerRef} className="w-max flex justify-center items-center gap-0 ">
                        <ul className="flex w-full items-center"
                         style={{ gap: `${gap}px`}}
                        >
