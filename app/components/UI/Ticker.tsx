@@ -8,7 +8,7 @@ interface TickerProps {
     children: ReactNode;
     speed?: number;
     direction?: "left" | "right";
-    hoverInteraction? : boolean;
+    hoverInteractions? : boolean;
     hoverTimeStretch? : number;
     pauseOnHover? : boolean;
     gap?: number;
