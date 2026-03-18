@@ -1,6 +1,6 @@
 "use client"
 
-import Button from "./UI/Button.tsx";
+import Button from "./UI/Button";
 import { useState } from "react";
 
 
