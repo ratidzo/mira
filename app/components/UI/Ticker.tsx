@@ -34,7 +34,7 @@ export default function Ticker({
     useGSAP(() => {
         tickerAnimationRef.current = gsap.to(
             tickerRef.current, {
-                x: '-50%',
+                x: xDirection,
                 duration: speed,
                 repeat: -1, // repeat infinite
                 ease: "linear"
@@ -73,19 +73,21 @@ export default function Ticker({
         <div ref={ parentRef }
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={`w-full overflow-hidden py-10 ${hoverInteractions? "hover:cursor-pointer": "hover:cursor-default"}`}
+            className={`flex relative w-full overflow-hidden backface-hidden py-10 ${hoverInteractions? "hover:cursor-pointer": "hover:cursor-default"}`}
             style={{
                 maskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
                 WebkitMaskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)"
             }}
             >
-                <div ref={tickerRef} className="w-max flex justify-center items-center gap-0 ">
-                       <ul className="flex w-full items-center"
-                        style={{ gap: `${gap}px`}}
+                <div ref={tickerRef} className={`flex w-max translate-x-[${direction==="left" ? 0 : -50}%]`} // make a -50% layout transform correction for rightward animations.
+                >
+                       <ul className="flex w-max items-center"
+                        style={{ gap: `${gap}px`
+                        }} 
                        >
                             { items }
                        </ul>
-                       <ul className="flex w-full items-center"
+                       <ul className="flex w-max items-center aria-hidden"
                         style={{ gap: `${gap}px`}}
                        >
                             { items }
