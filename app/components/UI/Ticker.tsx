@@ -44,7 +44,7 @@ export default function Ticker({
     
     const items = Children.map(children, (child, index) => (
         <li key={index} className="flex items-center shrink-0 list-none "
-            style={{ paddingLeft: `${gap}px`, paddingRight: `${gap}`}}>
+            style={{ paddingLeft: `${gap}px`, paddingRight: `${gap}px`}}>
             { child }
         </li>
     ))
