@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${jost.variable} ${inter.variable} flex flex-col items-center antialiased`}
+        className={`${jost.variable} ${inter.variable} flex flex-col items-center antialiased pt-4`}
       >
       	<Nav />
         {children}
