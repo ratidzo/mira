@@ -25,7 +25,7 @@ const links = [
 export default function Nav() {
 
     return (
-        <nav>
+        <nav className="flex">
             <div>
                 <h1> Logo </h1>
             </div>
