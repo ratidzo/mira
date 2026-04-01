@@ -32,14 +32,14 @@ export default function Nav() {
             <Link href="/">
             <div className="flex gap-2 items-center">
                 <Image alt="Mira logo" src="mira.svg" width="26" height="29" />
-                <span className="font-brand">Mira</span>
+                <span className="font-brand text-[20px]">Mira</span>
             </div>
             </Link>
 
             <ul className="flex gap-12 items-center z-100">
             {
                 links.map((link) => (
-                    <li key={link.id}> { link.title } </li>
+                    <li key={link.id} className="font-app text-[14px] font-medium"> { link.title } </li>
                 ))
             } 
             </ul>
