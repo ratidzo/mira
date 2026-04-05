@@ -5,7 +5,7 @@ import BrandsSection from "./components/BrandsSection";
 export default function Home() {
 
   return (
-    <div className="flex flex-col w-full h-full">
+    <div className="flex flex-col items-center w-full h-full">
       <HeroSection />
       <AdSection />
       <BrandsSection />
