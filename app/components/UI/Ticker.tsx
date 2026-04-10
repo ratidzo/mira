@@ -30,7 +30,7 @@ export default function Ticker({
     const tickerRef = useRef(null);
 
     const xDirection = direction === "left"? "-50%": "50%";
-    const xShift = direction === "left"? "0%" : "50%";
+    const xShift = direction === "left"? "0%" : "-50%";
 
     useGSAP(() => {
         tickerAnimationRef.current = gsap.to(
@@ -80,10 +80,14 @@ export default function Ticker({
                 WebkitMaskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)"
             }}
             >
-                <div ref={tickerRef} className={`flex w-max -translate-x-[${xShift}]`} // make a -50% layout transform correction for rightward animations.
+                <div ref={tickerRef} className={`flex w-max`} // make a -50% layout transform correction for rightward animations.
+                style={{
+                    transform:`translateX(${xShift})`
+                }}
                 >
                        <ul className="flex w-max items-center  "
-                        style={{ gap: `${gap}px`
+                        style={{
+                            gap: `${gap}px`,
                         }} 
                        >
                             { items }
