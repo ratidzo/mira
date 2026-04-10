@@ -51,7 +51,7 @@ export default function HeroSection() {
             )) }
 
 
-        <div className="z-100 flex flex-col gap-35 items-center">
+        <div className="z-100 flex flex-col gap-20 items-center">
             <div className="flex flex-col items-center" >
                 <h1 className="text-[100px] text-black font-brand tracking-tight">Let them look in the mirror</h1>
                 <p className="font-brand text-xl text-dark-500 w-160">Meet your Mira, a try-on platform for e-commerce vendors that let your customers visualize their new look right in store - with AI.</p>

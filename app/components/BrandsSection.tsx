@@ -26,7 +26,7 @@ export default function BrandsSection() {
        <div className="bg-dark-900 w-full flex flex-col justify-center items-center pt-16  pb-20 gap-10">
         <h1 className="font-brand text-lg text-white">Trusted by the best in e-commerce:</h1>
 
-        <Ticker children={logos} gap={80} speed={30} direction="left" hoverInteractions hoverTimeStretch={0.5} />
+        <Ticker children={logos} gap={80} speed={30} direction="right" hoverInteractions hoverTimeStretch={.5} />
        </div>
     )
 }
